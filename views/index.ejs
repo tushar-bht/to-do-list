@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo</title>
+  
+    <%-include("header");-%> 
+  </head>
+  <body align="center"><div  id="heading" class="box">
+    <h1 >Hey its <%=title%></h1>
+  </div>
+    
+
+   <div class="box">
+    <form class="item" method="post" action="/">
+      <input type="text" class="add" name="task" placeholder="add item" autofocus autocomplete="off" required maxLength="40"/>
+      <input type="submit" name="button" value="+" />
+    </form></div>
+ <div class="box">
+  
+    <% for(var i=0;i<tasks.length;i++){%>
+   
+     <div class="item"> <input type="checkbox">
+      <p style="width:15rem;"><%=tasks[i].task %></p>
+      <form action="/delete" method="post">
+        <button type="submit" name="del" value="<%=tasks[i]._id%>">-</button>
+  </form>
+  </div> 
+    <% } %>
+  
+ 
+ </div>
+ <%-include("footer");-%> 
+ <button> <a href="/about">tushar</a></button>
+    </body>
+</html>
