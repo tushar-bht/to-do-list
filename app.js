@@ -4,6 +4,9 @@ const date = require(__dirname + "/date");
 var Date = date.data();
 var mongoose = require("mongoose");
 var _ = require("lodash");
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+
 mongoose.connect(
   "mongodb+srv://admin-tushar:tushar123@cluster0-luq90.mongodb.net/myproject",
   {
@@ -15,8 +18,6 @@ mongoose.connect(
 console.log(Date);
 
 //server work.........................
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 //port.....................
